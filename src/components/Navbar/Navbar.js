@@ -20,14 +20,14 @@ export default function Navbar({ links }) {
           display: "flex",
           alignItems: "center",
           gap: "15px",
-          color: "white",
+          color: "#202020",
           fontWeight: "bolder",
         }}
       >
-        LOGO
+        STUDENT MANAGEMENT
       </div>
 
-      <div>
+      <div style={{ marginLeft: "auto", marginRight: "auto" }}>
         <ul className={activeMenu}>
           {links.map((item, index) => (
             <NavLink

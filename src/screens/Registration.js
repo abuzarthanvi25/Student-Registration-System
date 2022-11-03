@@ -1,6 +1,5 @@
 import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import EZ_Datepicker from "../components/EZ_Datepicker";
 import EZ_Dropdown from "../components/EZ_Dropdown";
 import EZ_Input from "../components/EZ_Input";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -9,12 +8,15 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TextField } from "@mui/material";
 import EZ_Button from "../components/EZ_Button";
 import { Container } from "@mui/system";
-import { sendData } from "../config/firebasemethods";
+import { checkUser, sendData } from "../config/firebasemethods";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
   const [studentRegistration, setStudentRegistration] = useState({});
+  const [value, setValue] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  let navigate = useNavigate();
   let currentDate = new Date();
 
   // method for data filling
@@ -29,7 +31,7 @@ function Registration() {
       "age",
       currentDate.getFullYear() - studentRegistration.dateOfBirth.year
     );
-    fillData("registrationDate", currentDate);
+    fillData("registrationDate", currentDate.toString());
     fillData("registrationYear", currentDate.getFullYear());
     fillData("isFeesSubmitted", true);
     fillData("isApproved", true);
@@ -47,9 +49,6 @@ function Registration() {
       });
   };
 
-  useEffect(() => {
-    console.log(studentRegistration);
-  }, [studentRegistration]);
   return (
     <>
       <Typography

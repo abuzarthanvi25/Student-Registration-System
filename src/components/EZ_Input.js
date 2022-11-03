@@ -11,6 +11,7 @@ export default function EZ_Input(props) {
     required,
     fullWidth,
     InputProps,
+    margin,
   } = props;
 
   // -- TYPE CHECK
@@ -22,6 +23,7 @@ export default function EZ_Input(props) {
     <>
       <TextField
         label={label}
+        sx={{ margin: { margin } }}
         fullWidth
         InputProps={InputProps}
         variant="standard"

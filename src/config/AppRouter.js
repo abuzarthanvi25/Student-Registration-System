@@ -1,41 +1,36 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import Home from "../screens/Home";
-import About from "../screens/About";
-import Services from "../screens/Services";
+import Result from "../screens/Result";
+import StudentProfile from "../screens/StudentProfile";
 import Dashboard from "../screens/Dashboard";
 import Login from "../screens/Login";
 import SignUp from "../screens/SignUp";
 import Registration from "../screens/Registration";
-import CourseForm from "../screens/adminScreens/CourseForm";
-import QuizForm from "../screens/adminScreens/QuizForm";
+import ShowQuiz from "../screens/ShowQuiz";
+import TrainerRegistration from "../screens/TrainerRegistration";
 
 function AppRouter() {
   const [links, setLinks] = useState([
     {
       to: "/",
-      label: "Home",
+      label: "Student Registration",
     },
     {
-      to: "about",
-      label: "About",
+      to: "result",
+      label: "Result",
     },
     {
-      to: "services",
-      label: "Services",
+      to: "studentProfile",
+      label: "Student Profile",
     },
     {
-      to: "Signup",
-      label: "Sign Up",
+      to: "trainterRegistration",
+      label: "Trainer Registration",
     },
     {
       to: "login",
-      label: "Sign In",
-    },
-    {
-      to: "dashboard",
-      label: "Admin Dashboard",
+      label: "Admin",
     },
   ]);
   return (
@@ -43,13 +38,16 @@ function AppRouter() {
       <Router>
         <Navbar links={links} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Registration />} />
+          <Route path="showquiz" element={<ShowQuiz />} />
           <Route path="registration" element={<Registration />} />
-          <Route path="courseform" element={<CourseForm />} />
-          <Route path="quizform" element={<QuizForm />} />
-          <Route path="about" element={<About />} />
-          <Route path="services" element={<Services />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="result" element={<Result />} />
+          <Route path="studentProfile" element={<StudentProfile />} />
+          <Route
+            path="trainterRegistration"
+            element={<TrainerRegistration />}
+          />
+          <Route path="dashboard/*" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>
