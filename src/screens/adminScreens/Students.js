@@ -134,7 +134,7 @@ export default function Students() {
     checkUser()
       .then((success) => {
         console.log(success);
-        alert(success);
+        // alert(success);
       })
       .catch((error) => {
         console.log(error);
@@ -154,7 +154,7 @@ export default function Students() {
         <Typography
           textAlign={"center"}
           variant="h2"
-          color={"primary"}
+          color={"secondary"}
           gutterBottom
           margin={"10px"}
           fontWeight="bolder"

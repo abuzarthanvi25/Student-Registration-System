@@ -21,11 +21,12 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import CourseForm from "../screens/adminScreens/CourseForm";
 import SchoolIcon from "@mui/icons-material/School";
 import QuizForm from "../screens/adminScreens/QuizForm";
-import ResultUpdate from "./adminScreens/ResultUpdate";
 import Students from "../screens/adminScreens/Students";
 import UpdateIcon from "@mui/icons-material/Update";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { logoutUser } from "../config/firebasemethods";
+import CreateResult from "./adminScreens/CreateResult";
 
 const drawerWidth = 240;
 
@@ -310,7 +311,7 @@ function Dashboard(props) {
               </ListItem>
               <ListItem
                 onClick={() => {
-                  navigate("resultupdate");
+                  navigate("createresult");
                 }}
                 disablePadding
                 className="sideBtns"
@@ -330,10 +331,10 @@ function Dashboard(props) {
                       justifyContent: "center",
                     }}
                   >
-                    <UpdateIcon color="primary" />
+                    <HistoryEduIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
-                    primary="Result Update"
+                    primary="Create Result"
                     sx={{ opacity: open ? 1 : 0 }}
                   />
                 </ListItemButton>
@@ -351,7 +352,7 @@ function Dashboard(props) {
           <Routes>
             <Route path="students" element={<Students />} />
             <Route path="courseform" element={<CourseForm />} />
-            <Route path="resultupdate" element={<ResultUpdate />} />
+            <Route path="createresult" element={<CreateResult />} />
             <Route path="quizform" element={<QuizForm />} />
           </Routes>
         </Box>

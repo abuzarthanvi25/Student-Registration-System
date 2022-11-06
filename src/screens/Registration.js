@@ -8,16 +8,19 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TextField } from "@mui/material";
 import EZ_Button from "../components/EZ_Button";
 import { Container } from "@mui/system";
-import { checkUser, sendData } from "../config/firebasemethods";
+import { sendData } from "../config/firebasemethods";
 import { useNavigate } from "react-router-dom";
+import { setDate } from "../core/helpermethods";
+import EZ_Alert from "../components/EZ_Alert";
 
 function Registration() {
   const [studentRegistration, setStudentRegistration] = useState({});
   const [value, setValue] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+  const [severity, setServerity] = useState("");
   let navigate = useNavigate();
-  let currentDate = new Date();
 
   // method for data filling
   let fillData = (key, value) => {
@@ -25,25 +28,40 @@ function Registration() {
     setStudentRegistration({ ...studentRegistration });
   };
 
-  let sendRegistrationData = (data, node) => {
-    setLoading(true);
+  let register = () => {
     fillData(
       "age",
-      currentDate.getFullYear() - studentRegistration.dateOfBirth.year
+      new Date().getFullYear() - studentRegistration.dateOfBirth.year
     );
-    fillData("registrationDate", currentDate.toString());
-    fillData("registrationYear", currentDate.getFullYear());
-    fillData("isFeesSubmitted", true);
-    fillData("isApproved", true);
-    fillData("isActive", true);
+    fillData("registrationDate", setDate(new Date()));
+    fillData("registrationYear", new Date().getFullYear());
+    fillData("isFeesSubmitted", false);
+    fillData("isApproved", false);
+    fillData("isActive", false);
+  };
 
+  let sendRegistrationData = (data, node) => {
+    setLoading(true);
+    register();
     sendData(data, node)
       .then((success) => {
         setLoading(false);
+        setAlertMessage(success);
+        setTimeout(() => {
+          setAlertMessage("");
+          setServerity("");
+        }, 3000);
+        setServerity("success");
         console.log(success);
       })
       .catch((err) => {
         setLoading(false);
+        setAlertMessage(err);
+        setServerity("error");
+        setTimeout(() => {
+          setAlertMessage("");
+          setServerity("");
+        }, 3000);
         console.log(err);
         setError(err);
       });
@@ -61,7 +79,6 @@ function Registration() {
       >
         Student Registration System
       </Typography>
-
       <Container maxWidth="lg">
         <Grid spacing={6} container>
           <Grid item md={4}>
@@ -117,11 +134,11 @@ function Registration() {
               value={studentRegistration.section}
               data={[
                 {
-                  id: "a",
+                  id: "A",
                   displayName: "Section A",
                 },
                 {
-                  id: "b",
+                  id: "B",
                   displayName: "Section B",
                 },
               ]}
@@ -226,6 +243,7 @@ function Registration() {
           )}
         </Box>
       </Container>
+      <EZ_Alert alertMessage={alertMessage} severity={severity} />
     </>
   );
 }

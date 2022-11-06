@@ -4,9 +4,6 @@ import {
   Grid,
   InputAdornment,
   Typography,
-  Card,
-  CardActions,
-  CardContent,
 } from "@mui/material";
 
 import { Container } from "@mui/system";
@@ -16,9 +13,8 @@ import EZ_Dropdown from "../../components/EZ_Dropdown";
 import EZ_Input from "../../components/EZ_Input";
 import { getData, sendData } from "../../config/firebasemethods";
 import SendIcon from "@mui/icons-material/Send";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import EZ_DataGrid from "../../components/EZ_DataGrid";
+import EZ_Alert from "../../components/EZ_Alert";
 
 export default function CourseForm() {
   let [courseFormData, setCourseFormData] = useState({});
@@ -26,6 +22,8 @@ export default function CourseForm() {
   //
   const [courseList, setCourseList] = useState([]);
   const [error, setError] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+  const [severity, setServerity] = useState("");
   const columns = [
     {
       field: "id",
@@ -99,16 +97,29 @@ export default function CourseForm() {
     setCourseFormData({ ...courseFormData });
   };
 
+  let removeAlert = () => {
+    setTimeout(() => {
+      setAlertMessage("");
+      setServerity("");
+    }, 3000);
+  };
+
   let sendCourseData = (data, node) => {
     setLoading(true);
     sendData(data, node)
       .then((success) => {
         setLoading(false);
+        setAlertMessage(success);
+        setServerity("success");
+        removeAlert();
         console.log(success);
       })
       .catch((err) => {
         setLoading(false);
         console.log(err);
+        setAlertMessage(err);
+        setServerity("error");
+        removeAlert();
         setError(err);
       });
   };
@@ -137,7 +148,7 @@ export default function CourseForm() {
           variant="h2"
           gutterBottom
           margin={"10px"}
-          color={"primary"}
+          color={"secondary"}
           fontWeight="bolder"
         >
           Add Courses
@@ -268,6 +279,7 @@ export default function CourseForm() {
           )}
         </Box>
       </Container>
+      <EZ_Alert alertMessage={alertMessage} severity={severity} />
       <Container
         style={{ display: "flex", flexDirection: "column" }}
         maxWidth="xl"
