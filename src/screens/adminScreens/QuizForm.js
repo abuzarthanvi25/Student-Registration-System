@@ -93,17 +93,24 @@ export default function QuizForm() {
 
   return (
     <>
+      <Typography
+        textAlign={"center"}
+        variant="h2"
+        style={{
+          backgroundColor: "#005fa8",
+          color: "white",
+          borderRadius: "10px",
+          boxShadow:
+            "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        }}
+        gutterBottom
+        margin={"10px"}
+        color={"secondary"}
+        fontWeight="bolder"
+      >
+        Quiz Form
+      </Typography>
       <Container maxWidth="lg" style={{ padding: "20px" }}>
-        <Typography
-          textAlign={"center"}
-          variant="h2"
-          gutterBottom
-          margin={"10px"}
-          color={"secondary"}
-          fontWeight="bolder"
-        >
-          Quiz Form
-        </Typography>
         <Grid
           container
           style={{
@@ -112,6 +119,7 @@ export default function QuizForm() {
             padding: "10px",
             boxShadow:
               "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            borderRadius: "20px",
           }}
           spacing={3}
         >
@@ -195,6 +203,7 @@ export default function QuizForm() {
               padding: "10px",
               boxShadow:
                 "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+              borderRadius: "20px",
             }}
             spacing={3}
           >
@@ -335,6 +344,7 @@ export default function QuizForm() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <EZ_Button
             label={isLoading ? <CircularProgress /> : "Lock Quiz"}
+            disabled={!isCreateQuiz}
             color="success"
             startIcon={<LockIcon />}
             padding="10px 40px"

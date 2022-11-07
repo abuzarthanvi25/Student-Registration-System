@@ -176,19 +176,35 @@ export default function CreateResult() {
 
   return (
     <>
+      <Typography
+        textAlign={"center"}
+        variant="h2"
+        gutterBottom
+        margin={"10px"}
+        style={{
+          backgroundColor: "#005fa8",
+          color: "white",
+          borderRadius: "10px",
+          boxShadow:
+            "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        }}
+        // color={"secondary"}
+        fontWeight="bolder"
+      >
+        Create Result
+      </Typography>
       <Container maxWidth="lg" style={{ padding: "20px" }}>
-        <Typography
-          textAlign={"center"}
-          variant="h2"
-          gutterBottom
-          margin={"10px"}
-          color={"secondary"}
-          fontWeight="bolder"
-        >
-          Create Result
-        </Typography>
         <Box>
-          <Grid container>
+          <Grid
+            container
+            style={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+              marginTop: "10px",
+              padding: "20px",
+              borderRadius: "20px",
+            }}
+          >
             <Grid item md={6}>
               <FormControlLabel
                 style={{ color: "#005fa8" }}
@@ -196,7 +212,7 @@ export default function CreateResult() {
                   <EZ_Switch
                     value={courseStatus}
                     onChange={(e) => setCourseStatus(e.target.checked)}
-                    label="Course"
+                    label="Course Status"
                   />
                 }
                 label="Course Status"
@@ -246,10 +262,9 @@ export default function CreateResult() {
                 onClick={submitForm}
               />
             </Grid>
-            <Grid item md={12}>
-              <EZ_Alert alertMessage={alertMessage} severity={severity} />
-            </Grid>
+            {/* <Grid item md={12}></Grid> */}
           </Grid>
+          <EZ_Alert alertMessage={alertMessage} severity={severity} />
         </Box>
         <Box margin={"10px"}>
           <EZ_DataGrid rows={resultData} columns={columns} />

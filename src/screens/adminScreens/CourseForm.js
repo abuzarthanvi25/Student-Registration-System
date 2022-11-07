@@ -15,6 +15,7 @@ import { getData, sendData } from "../../config/firebasemethods";
 import SendIcon from "@mui/icons-material/Send";
 import EZ_DataGrid from "../../components/EZ_DataGrid";
 import EZ_Alert from "../../components/EZ_Alert";
+import { Transform } from "@mui/icons-material";
 
 export default function CourseForm() {
   let [courseFormData, setCourseFormData] = useState({});
@@ -142,18 +143,34 @@ export default function CourseForm() {
   }, []);
   return (
     <>
+      <Typography
+        textAlign={"center"}
+        variant="h2"
+        style={{
+          backgroundColor: "#005fa8",
+          color: "white",
+          borderRadius: "10px",
+          boxShadow:
+            "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        }}
+        gutterBottom
+        margin={"10px"}
+        fontWeight="bolder"
+      >
+        Add Courses
+      </Typography>
       <Container maxWidth="lg" style={{ padding: "20px" }}>
-        <Typography
-          textAlign={"center"}
-          variant="h2"
-          gutterBottom
-          margin={"10px"}
-          color={"secondary"}
-          fontWeight="bolder"
+        <Grid
+          container
+          style={{
+            boxShadow:
+              "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+            marginTop: "10px",
+            padding: "20px 20px 40px 20px",
+            borderRadius: "20px",
+          }}
+          spacing={6}
         >
-          Add Courses
-        </Typography>
-        <Grid container spacing={6}>
           <Grid item md={6}>
             <EZ_Input
               fullWidth={true}

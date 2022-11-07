@@ -150,17 +150,24 @@ export default function Students() {
 
   return (
     <>
+      <Typography
+        textAlign={"center"}
+        variant="h2"
+        // color={"secondary"}
+        style={{
+          backgroundColor: "#005fa8",
+          color: "white",
+          borderRadius: "10px",
+          boxShadow:
+            "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        }}
+        gutterBottom
+        margin={"10px"}
+        fontWeight="bolder"
+      >
+        Registered Students
+      </Typography>
       <Container maxWidth="xl" style={{ padding: "20px" }}>
-        <Typography
-          textAlign={"center"}
-          variant="h2"
-          color={"secondary"}
-          gutterBottom
-          margin={"10px"}
-          fontWeight="bolder"
-        >
-          Registered Students
-        </Typography>
         {studentList && studentList.length > 0 ? (
           <EZ_DataGrid rows={studentList} columns={columns} />
         ) : (

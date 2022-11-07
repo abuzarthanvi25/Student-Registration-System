@@ -11,6 +11,7 @@ export default function EZ_Button(props) {
     padding,
     margin,
     fullWidth,
+    disabled,
   } = props;
   // -- TYPE CHECK
   // label: <String>
@@ -25,6 +26,7 @@ export default function EZ_Button(props) {
     <>
       <Button
         fullWidth={fullWidth}
+        disabled={disabled}
         onClick={onClick}
         endIcon={endIcon}
         startIcon={startIcon}
