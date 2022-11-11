@@ -131,7 +131,7 @@ export default function QuizForm() {
               fullWidth={true}
               value={quizFormData.quizName}
               onChange={(e) => {
-                fillData("QuizName", e.target.value);
+                fillData("quizName", e.target.value);
               }}
             />
           </Grid>
@@ -224,7 +224,7 @@ export default function QuizForm() {
                 label="Question"
                 required={true}
                 fullWidth={true}
-                value={quizFormData.Question}
+                value={quizFormData.question}
                 onChange={(e) => {
                   setQuizQuestionModel({
                     ...quizQuestionModel,

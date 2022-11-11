@@ -9,12 +9,17 @@ import SignUp from "../screens/SignUp";
 import Registration from "../screens/Registration";
 import ShowQuiz from "../screens/ShowQuiz";
 import TrainerRegistration from "../screens/TrainerRegistration";
+import UserQuiz from "../screens/UserQuiz";
 
 function AppRouter() {
   const [links, setLinks] = useState([
     {
       to: "/",
       label: "Student Registration",
+    },
+    {
+      to: "userquiz",
+      label: "Quizzes",
     },
     {
       to: "result",
@@ -41,6 +46,7 @@ function AppRouter() {
           <Route path="/" element={<Registration />} />
           <Route path="showquiz" element={<ShowQuiz />} />
           <Route path="registration" element={<Registration />} />
+          <Route path="userquiz" element={<UserQuiz />} />
           <Route path="result" element={<Result />} />
           <Route path="studentProfile" element={<StudentProfile />} />
           <Route

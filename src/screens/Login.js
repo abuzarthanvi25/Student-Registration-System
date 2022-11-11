@@ -60,6 +60,7 @@ function Login() {
           <EZ_Input
             variant="standard"
             fullWidth
+            value={email}
             margin="10px 0px "
             type="email"
             label="Email"
@@ -67,6 +68,7 @@ function Login() {
           />
           <EZ_Input
             fullWidth={true}
+            value={password}
             margin="10px 0px "
             variant="standard"
             type="password"

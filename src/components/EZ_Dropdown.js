@@ -1,14 +1,44 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getData } from "../config/firebasemethods";
 
 export default function EZ_Dropdown(props) {
-  const { label, value, onChange, data, displayField, valueField, disabled } =
-    props;
+  const {
+    label,
+    value,
+    onChange,
+    data,
+    displayField,
+    valueField,
+    disabled,
+    nodeName,
+  } = props;
+
+  let [dtSource, setDtSource] = useState(data);
+
+  let getDataFromDB = () => {
+    if (nodeName) {
+      getData(nodeName)
+        .then((res) => {
+          setDtSource(res);
+
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  useEffect(() => {
+    getDataFromDB();
+  }, []);
   return (
     <>
       <FormControl style={{ width: "100%" }}>
         <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         <Select
+          defaultValue=""
           variant="standard"
           fullWidth
           disabled={disabled}
@@ -17,8 +47,8 @@ export default function EZ_Dropdown(props) {
           label={label}
           onChange={onChange}
         >
-          {data && data.length > 0
-            ? data.map((x, index) => (
+          {dtSource && dtSource.length > 0
+            ? dtSource.map((x, index) => (
                 <MenuItem key={index} value={x[valueField ? valueField : "id"]}>
                   {x[displayField ? displayField : "displayName"]}
                 </MenuItem>

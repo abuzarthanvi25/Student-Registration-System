@@ -104,10 +104,10 @@ function Result() {
           <Grid item md={6}>
             <EZ_Dropdown
               label="Course"
+              data={allResults}
               valueField="course"
               displayField="course"
               onChange={(e) => showResult(e.target.value)}
-              data={allResults}
             />
           </Grid>
           <Grid item md={6}>

@@ -10,28 +10,21 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import LinearProgress from "@mui/material/LinearProgress";
 import { getData } from "../config/firebasemethods";
+import { useLocation } from "react-router-dom";
 
 export default function ShowQuiz() {
-  const [questionsData, setQuestionsData] = useState([]);
+  // const [questionsData, setQuestionsData] = useState([]);
+  const location = useLocation();
+  const questionsData = location.state.quizDetails;
   const [indexNumber, setIndexNumber] = useState(0);
   const [score, setScore] = useState(0);
   const [disabled, setdisabled] = useState(false);
   const [showResult, setShowResult] = useState(false);
-  const [seconds, setSeconds] = useState(30);
-  const [minutes, setMinutes] = useState(1);
-  let getQuizData = () => {
-    getData("quizData")
-      .then((success) => {
-        console.log(success);
-        setQuestionsData(success);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  };
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(location.state.quizDuration);
 
   useEffect(() => {
-    getQuizData();
+    console.log(location.state.quizDetails);
   }, []);
 
   const theme = createTheme({
@@ -131,8 +124,8 @@ export default function ShowQuiz() {
                   setIndexNumber(0);
                   setScore(0);
                   setShowResult(false);
-                  setMinutes(1);
-                  setSeconds(30);
+                  setMinutes(location.state.quizDuration);
+                  setSeconds(0);
                   clearInterval(timer);
                 }}
               >
@@ -213,7 +206,7 @@ export default function ShowQuiz() {
             }}
           >
             <Typography variant="h3" sx={{ fontWeight: "bolder" }}>
-              {questionsData[indexNumber].Question}
+              {questionsData[indexNumber].question}
             </Typography>
           </Box>
           <Box>

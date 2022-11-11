@@ -85,7 +85,7 @@ function Registration() {
             <EZ_Input
               label="First Name"
               required={true}
-              value={studentRegistration.firstName}
+              value={studentRegistration.firstName || ""}
               onChange={(e) => {
                 fillData("firstName", e.target.value);
               }}

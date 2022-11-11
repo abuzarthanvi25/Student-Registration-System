@@ -22,11 +22,14 @@ import CourseForm from "../screens/adminScreens/CourseForm";
 import SchoolIcon from "@mui/icons-material/School";
 import QuizForm from "../screens/adminScreens/QuizForm";
 import Students from "../screens/adminScreens/Students";
-import UpdateIcon from "@mui/icons-material/Update";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { logoutUser } from "../config/firebasemethods";
 import CreateResult from "./adminScreens/CreateResult";
+import AddCountry from "./adminScreens/AddCountry";
+import AddCity from "./adminScreens/AddCity";
+import PublicIcon from "@mui/icons-material/Public";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 const drawerWidth = 240;
 
@@ -219,126 +222,70 @@ function Dashboard(props) {
             </DrawerHeader>
             {/* <Divider /> */}
             <List>
-              <ListItem
-                onClick={() => {
-                  navigate("students");
-                }}
-                disablePadding
-                className="sideBtns"
-                sx={{ display: "block" }}
-              >
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
+              {[
+                {
+                  label: "Students",
+                  route: "students",
+                  icon: <PeopleAltIcon color="primary" />,
+                },
+                {
+                  label: "Course Form",
+                  route: "courseform",
+                  icon: <SchoolIcon color="primary" />,
+                },
+                {
+                  label: "Quiz Form",
+                  route: "quizform",
+                  icon: <QuizIcon color="primary" />,
+                },
+                {
+                  label: "Create Result",
+                  route: "createresult",
+                  icon: <HistoryEduIcon color="primary" />,
+                },
+                {
+                  label: "Add Country",
+                  route: "addcountry",
+                  icon: <PublicIcon color="primary" />,
+                },
+                {
+                  label: "Add City",
+                  route: "addcity",
+                  icon: <LocationCityIcon color="primary" />,
+                },
+              ].map((e, i) => (
+                <ListItem
+                  key={i}
+                  onClick={() => {
+                    navigate(e.route);
                   }}
+                  disablePadding
+                  className="sideBtns"
+                  sx={{ display: "block" }}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
                   >
-                    <PeopleAltIcon color="primary" />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Students"
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <ListItem
-                onClick={() => {
-                  navigate("courseform");
-                }}
-                disablePadding
-                className="sideBtns"
-                sx={{ display: "block" }}
-              >
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <SchoolIcon color="primary" />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Course Form"
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <ListItem
-                onClick={() => {
-                  navigate("quizform");
-                }}
-                disablePadding
-                className="sideBtns"
-                sx={{ display: "block" }}
-              >
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <QuizIcon color="primary" />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Quiz Form"
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
-              <ListItem
-                onClick={() => {
-                  navigate("createresult");
-                }}
-                disablePadding
-                className="sideBtns"
-                sx={{ display: "block" }}
-              >
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <HistoryEduIcon color="primary" />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Create Result"
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
-                </ListItemButton>
-              </ListItem>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {e.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={e.label}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
             </List>
           </Drawer>
         </Box>
@@ -354,6 +301,8 @@ function Dashboard(props) {
             <Route path="courseform" element={<CourseForm />} />
             <Route path="createresult" element={<CreateResult />} />
             <Route path="quizform" element={<QuizForm />} />
+            <Route path="addcountry" element={<AddCountry />} />
+            <Route path="addcity" element={<AddCity />} />
           </Routes>
         </Box>
       </Box>

@@ -78,7 +78,7 @@ let checkUser = () => {
         console.log(uid);
       } else {
         reject("Admin Not Logged In!");
-        console.log(object);
+        // console.log(object);
       }
     });
   });
