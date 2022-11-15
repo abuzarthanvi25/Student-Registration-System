@@ -123,7 +123,7 @@ export default function QuizForm() {
           }}
           spacing={3}
         >
-          <Grid item md={4}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               label="Quiz Name"
               disabled={isCreateQuiz}
@@ -135,7 +135,7 @@ export default function QuizForm() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               label="Quiz Duration"
               disabled={isCreateQuiz}
@@ -147,7 +147,7 @@ export default function QuizForm() {
               }}
             />
           </Grid>
-          <Grid md={4} item>
+          <Grid md={6} sm={12} xs={12} item>
             <EZ_Dropdown
               label="Course"
               onChange={(e) => fillData("course", e.target.value)}
@@ -172,7 +172,7 @@ export default function QuizForm() {
               ]}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               label="Quiz Marks"
               disabled={isCreateQuiz}
@@ -184,7 +184,7 @@ export default function QuizForm() {
               }}
             />
           </Grid>
-          <Grid item md={12}>
+          <Grid item md={12} sm={12} xs={12}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
               <EZ_Button
                 label="Create Quiz"
@@ -207,7 +207,7 @@ export default function QuizForm() {
             }}
             spacing={3}
           >
-            <Grid item md={12}>
+            <Grid item md={12} sm={12} xs={12}>
               <Typography
                 textAlign={"center"}
                 color="secondary"
@@ -219,7 +219,7 @@ export default function QuizForm() {
               </Typography>
             </Grid>
 
-            <Grid item md={12}>
+            <Grid item md={12} sm={12} xs={12}>
               <EZ_Input
                 label="Question"
                 required={true}

@@ -101,16 +101,16 @@ function Result() {
       </Typography>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Dropdown
               label="Course"
-              data={allResults}
               valueField="course"
               displayField="course"
+              data={allResults}
               onChange={(e) => showResult(e.target.value)}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={false}
               onChange={(e) => {

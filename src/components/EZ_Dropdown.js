@@ -12,6 +12,7 @@ export default function EZ_Dropdown(props) {
     valueField,
     disabled,
     nodeName,
+    ref,
   } = props;
 
   let [dtSource, setDtSource] = useState(data);
@@ -21,7 +22,6 @@ export default function EZ_Dropdown(props) {
       getData(nodeName)
         .then((res) => {
           setDtSource(res);
-
           console.log(res);
         })
         .catch((error) => {
@@ -38,8 +38,9 @@ export default function EZ_Dropdown(props) {
       <FormControl style={{ width: "100%" }}>
         <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         <Select
+          ref={ref}
           defaultValue=""
-          variant="standard"
+          variant="outlined"
           fullWidth
           disabled={disabled}
           labelId="demo-simple-select-label"

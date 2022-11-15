@@ -25,6 +25,7 @@ export default function TrainerRegistration() {
 
   const submitTrainerRegistration = () => {
     setLoading(true);
+    setModel({ ...model, category: "staff" });
     sendData(model, "trainerRegistrationData")
       .then((success) => {
         console.log(success);
@@ -66,7 +67,7 @@ export default function TrainerRegistration() {
       </Typography>
       <Container maxWidth="lg">
         <Grid spacing={6} container>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, firstName: e.target.value });
@@ -74,7 +75,7 @@ export default function TrainerRegistration() {
               label="First Name"
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, lastName: e.target.value });
@@ -82,7 +83,7 @@ export default function TrainerRegistration() {
               label="Last Name"
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, CNIC: e.target.value });
@@ -90,7 +91,7 @@ export default function TrainerRegistration() {
               label="CNIC"
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, qualification: e.target.value });
@@ -98,11 +99,11 @@ export default function TrainerRegistration() {
               label="Qualification"
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input label="Contact" />
           </Grid>
           {listOfQualifications.length > 0 ? (
-            <Grid item md={6}>
+            <Grid item md={6} sm={12} xs={12}>
               <List>
                 {listOfQualifications.length > 0
                   ? listOfQualifications.map((e, i) => (
@@ -127,7 +128,7 @@ export default function TrainerRegistration() {
             </Grid>
           ) : null}
 
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setQualification(e.target.value);
@@ -162,7 +163,7 @@ export default function TrainerRegistration() {
               />
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Dropdown
               displayField="displayName"
               valueField="id"

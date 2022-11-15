@@ -87,7 +87,7 @@ export default function AddCountry() {
           }}
           spacing={3}
         >
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, countryName: e.target.value });
@@ -95,7 +95,7 @@ export default function AddCountry() {
               label="Country Name"
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, countryCode: e.target.value });
@@ -103,7 +103,7 @@ export default function AddCountry() {
               label="Country Code"
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, currency: e.target.value });

@@ -88,7 +88,7 @@ export default function AddCity() {
           }}
           spacing={3}
         >
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, cityName: e.target.value });
@@ -96,7 +96,7 @@ export default function AddCity() {
               label="City Name"
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               onChange={(e) => {
                 setModel({ ...model, cityCode: e.target.value });

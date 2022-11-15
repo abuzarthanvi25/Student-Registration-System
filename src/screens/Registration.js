@@ -33,6 +33,7 @@ function Registration() {
       "age",
       new Date().getFullYear() - studentRegistration.dateOfBirth.year
     );
+    fillData("category", "std");
     fillData("registrationDate", setDate(new Date()));
     fillData("registrationYear", new Date().getFullYear());
     fillData("isFeesSubmitted", false);
@@ -81,7 +82,7 @@ function Registration() {
       </Typography>
       <Container maxWidth="lg">
         <Grid spacing={6} container>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="First Name"
               required={true}
@@ -91,7 +92,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Last Name"
               required={true}
@@ -101,7 +102,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Dropdown
               label="Course"
               value={studentRegistration.course}
@@ -128,7 +129,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Dropdown
               label="Section"
               value={studentRegistration.section}
@@ -147,7 +148,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Contact"
               required={true}
@@ -157,7 +158,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="CNIC"
               required={true}
@@ -167,7 +168,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Father Name"
               required={true}
@@ -177,7 +178,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Father CNIC"
               value={studentRegistration.fatherCnic}
@@ -186,7 +187,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Father Contact"
               required={true}
@@ -196,7 +197,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <EZ_Input
               label="Emergency Contact"
               required={true}
@@ -206,7 +207,7 @@ function Registration() {
               }}
             />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} sm={12} xs={12}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 label="Date Of Birth"

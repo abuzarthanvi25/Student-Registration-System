@@ -28,3 +28,11 @@
     transform: scale(1.1);
     transition: 0.6s;
 }
+
+.profile{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvfMHm_ORYugsd1n-EIlmGc9b8n_dIKwf-PWaqhUEXcd99p50sGjHezhyTZekswkvqOUo&usqp=CAU');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

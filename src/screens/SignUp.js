@@ -29,6 +29,7 @@ function SignUp() {
       password,
       userName,
       contact,
+      category: "admin",
     })
       .then((success) => {
         setLoading(false);

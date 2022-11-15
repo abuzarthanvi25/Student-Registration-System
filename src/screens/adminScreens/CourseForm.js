@@ -170,7 +170,7 @@ export default function CourseForm() {
           }}
           spacing={6}
         >
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Course Name"
@@ -181,7 +181,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Course Duration(months)"
@@ -193,7 +193,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Dropdown
               label="Form Status"
               value={courseFormData.formStatus}
@@ -212,7 +212,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Number Of Quizzes in the course"
@@ -224,7 +224,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Course Fee"
@@ -240,7 +240,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Lead Trainer"
@@ -251,7 +251,7 @@ export default function CourseForm() {
               }}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Assitant Trainer 1"
@@ -262,7 +262,7 @@ export default function CourseForm() {
               value={courseFormData.assistantTrainer1}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={12} xs={12}>
             <EZ_Input
               fullWidth={true}
               label="Assitant Trainer 2"

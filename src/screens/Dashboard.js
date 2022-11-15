@@ -30,6 +30,7 @@ import AddCountry from "./adminScreens/AddCountry";
 import AddCity from "./adminScreens/AddCity";
 import PublicIcon from "@mui/icons-material/Public";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
+import { Typography } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -150,59 +151,63 @@ function Dashboard(props) {
           open={open}
         >
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                marginRight: 2,
-                ...(open && { display: "none" }),
-              }}
-            >
-              <MenuIcon fontSize="large" />
-            </IconButton>
-            <Box>
-              {auth && (
-                <div>
-                  <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    onClick={handleMenu}
-                    color="inherit"
-                  >
-                    <AccountCircle fontSize="large" />
-                  </IconButton>
-                  <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
+            {auth && (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  sx={{
+                    marginRight: 2,
+                    ...(open && { display: "none" }),
+                  }}
+                >
+                  <MenuIcon fontSize="large" />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle fontSize="large" />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      logout();
+                      navigate("/");
                     }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
+                    style={{ color: "red", fontWeight: "bolder" }}
                   >
-                    <MenuItem
-                      onClick={() => {
-                        logout();
-                        navigate("/");
-                      }}
-                      style={{ color: "red" }}
-                    >
-                      LOGOUT
-                    </MenuItem>
-                  </Menu>
-                </div>
-              )}
-            </Box>
+                    LOGOUT
+                  </MenuItem>
+                </Menu>
+              </div>
+            )}
           </Toolbar>
         </AppBar>
         <Box>
